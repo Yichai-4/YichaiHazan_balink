@@ -1,0 +1,23 @@
+public class AccountList {
+    String Name;
+    String Description;
+    String ImageUrl;
+    
+    public static void addAccountList(String name, String description, String imageUrl) {
+        //List<AccountList> accountList = new List<AccountList>();
+        AccountList newAccountList = new AccountList();
+        // if success
+        newAccountList.Name = name;
+        newAccountList.Description = description;
+        newAccountList.ImageUrl = imageUrl;
+        //accountList.add(newAccount);
+        // if success return JSON with success and id of the current record
+        if (true) {
+            system.debug(JSON.serialize('success'));
+        }
+        // if the insert failed return a JSON with failed
+        else {
+            system.debug(JSON.serialize('failed'));
+        }
+    }
+}
