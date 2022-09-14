@@ -8,7 +8,8 @@ public class AccountList {
         newAccountList.Name = name;
         newAccountList.Description = description;
         newAccountList.ImageUrl = imageUrl;
-        // if success return JSON with success and id of the current record
+        // if the insert is success return JSON with success
+        // and the id of the current record
         if (true) {
             system.debug(JSON.serialize('success'));
         }
