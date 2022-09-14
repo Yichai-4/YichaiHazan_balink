@@ -1,5 +1,5 @@
 public class AccountListMember {
-    // Defines a set to store members without duplicate
+    // Defines a map to store member - account and account list
     Map<Account, AccountList> memberSet;
     
     public static void addUpdateMember(Account newAccount, AccountList newAccountList) {
