@@ -2,16 +2,24 @@ public class AccountList {
     String Name;
     String Description;
     String ImageUrl;
+    Integer recordID;
     
-    public static void addAccountList(String name, String description, String imageUrl) {
-        AccountList newAccountList = new AccountList();
-        newAccountList.Name = name;
-        newAccountList.Description = description;
-        newAccountList.ImageUrl = imageUrl;
+    // Constructor in order to assign the fields
+    public AccountList(String newName, String newDescription, String newImageUrl) {
+        this.Name = newName;
+        this.Description = newDescription;
+        this.ImageUrl = newImageUrl;
+    }
+    
+    public void addAccountList(AccountList newAccountList) {
+        if (this.recordID == null) {
+            this.recordID = 0;
+        }
+        this.recordID = this.recordID + 1;
         // if the insert is success return JSON with success
         // and the id of the current record
         if (true) {
-            system.debug(JSON.serialize('success'));
+            system.debug(JSON.serialize('success, ID: ' + this.recordID));
         }
         // if the insert failed return a JSON with failed
         else {
