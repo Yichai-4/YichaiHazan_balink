@@ -1,15 +1,19 @@
 public class AccountListMember {
     // Defines a map to store member - account and account list
-    Map<Account, AccountList> memberSet;
+    Map<Account, AccountList> memberSet = new Map<Account, AccountList>();
+    Integer recordID;
     
-    public static void addUpdateMember(Account newAccount, AccountList newAccountList) {
-        Map<Account, AccountList> memberSet = new Map<Account, AccountList>();
+    public void addUpdateMember(Account newAccount, AccountList newAccountList) {
         memberSet.put(newAccount, newAccountList);
         system.debug(memberSet);
+        if (this.recordID == null) {
+            this.recordID = 0;
+        }
+        this.recordID = this.recordID + 1;
         // if the insert is success return JSON with success
         // and the id of the current record
         if (true) {
-            system.debug(JSON.serialize('success'));
+            system.debug(JSON.serialize('success, ID: ' + this.recordID));
         }
         // if the insert failed return a JSON with failed
         else {
