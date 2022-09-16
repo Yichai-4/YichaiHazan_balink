@@ -1,23 +1,21 @@
 public class AccountListMember {
-    // Defines a map to store member - account and account list
-    Map<Account, AccountList> memberSet = new Map<Account, AccountList>();
-    Integer recordID;
     
-    public void addUpdateMember(Account newAccount, AccountList newAccountList) {
-        memberSet.put(newAccount, newAccountList);
-        system.debug(memberSet);
-        if (this.recordID == null) {
-            this.recordID = 0;
-        }
-        this.recordID = this.recordID + 1;
-        // if the insert is success return JSON with success
-        // and the id of the current record
-        if (true) {
-            system.debug(JSON.serialize('success, ID: ' + this.recordID));
-        }
-        // if the insert failed return a JSON with failed
-        else {
-            system.debug(JSON.serialize('failed'));
+    // Add or update one member or more in an account list
+    public void addUpdateMember(AccountList accountList, List<String> newMembers) {
+        for (String member: newMembers) {
+            Account newAccount = new Account();
+            accountList.addAccountList(member, ' ', ' ');        
+        	
+            // if the insert is success return JSON with success
+        	// and the id of the current record
+        	try {
+            	// upsert command chooses to insert or update
+            	upsert newAccount;
+            	system.debug(JSON.serialize('success, ID: ' + newAccount.Id));
+        	} catch (DmlException e) {
+        	// if the insert failed return a JSON with failed
+        	system.debug(JSON.serialize('failed'));
+        	}
         }
     }
 }
