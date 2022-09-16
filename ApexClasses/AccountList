@@ -1,16 +1,17 @@
 public class AccountList {
+    List<Account> accountsList = new List<Account>();
     
     public void addAccountList(String newName, String newDescription, String newImageUrl) {
         Account newAccount = new Account();
         newAccount.Name = newName;
         newAccount.Description = newDescription;
-        // I tried to populate this field but I got an error: "Field is not writeable: Account.PhotoUrl" 
+        // I tried to populate this field but I get an error: "Field is not writeable: Account.PhotoUrl" 
         // newAccount.PhotoUrl = imageUrl;
-        
+        accountsList.add(newAccount);
         // if the insert is success return JSON with success
         // and the id of the current record
         try {
-            insert newAccount; // insert a new account list
+            insert accountsList; // insert a new account list
             system.debug(JSON.serialize('success, ID: ' + newAccount.Id));
         } catch (DmlException e) {
         // if the insert failed return a JSON with failed
