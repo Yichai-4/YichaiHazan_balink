@@ -4,18 +4,18 @@ public class AccountListMember {
     public void addUpdateMember(AccountList accountList, List<String> newMembers) {
         for (String member: newMembers) {
             Account newAccount = new Account();
-            accountList.addAccountList(member, ' ', ' ');        
-        	
+            accountList.addAccountList(member, ' ', ' ');
+            
             // if the insert is success return JSON with success
-        	// and the id of the current record
-        	try {
-            	// upsert command chooses to insert or update
-            	upsert newAccount;
-            	system.debug(JSON.serialize('success, ID: ' + newAccount.Id));
-        	} catch (DmlException e) {
-        	// if the insert failed return a JSON with failed
-        	system.debug(JSON.serialize('failed'));
-        	}
+            // and the id of the current record
+            try {
+                // upsert command chooses to insert or update
+                upsert newAccount;
+                system.debug(JSON.serialize('success, ID: ' + newAccount.Id));
+            } catch (DmlException e) {
+                // if the insert failed return a JSON with failed
+                system.debug(JSON.serialize('failed'));
+            }
         }
     }
 }
