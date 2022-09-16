@@ -8,6 +8,7 @@ public class AccountList {
         // I tried to populate this field but I get an error: "Field is not writeable: Account.PhotoUrl" 
         // newAccount.PhotoUrl = imageUrl;
         accountsList.add(newAccount);
+        
         // if the insert is success return JSON with success
         // and the id of the current record
         try {
