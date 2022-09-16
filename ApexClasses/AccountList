@@ -1,29 +1,20 @@
 public class AccountList {
-    String Name;
-    String Description;
-    String ImageUrl;
-    Integer recordID;
     
-    // Constructor in order to assign the fields
-    public AccountList(String newName, String newDescription, String newImageUrl) {
-        this.Name = newName;
-        this.Description = newDescription;
-        this.ImageUrl = newImageUrl;
-    }
-    
-    public void addAccountList(AccountList newAccountList) {
-        if (this.recordID == null) {
-            this.recordID = 0;
-        }
-        this.recordID = this.recordID + 1;
+    public void addAccountList(String newName, String newDescription, String newImageUrl) {
+        Account newAccount = new Account();
+        newAccount.Name = newName;
+        newAccount.Description = newDescription;
+        // I tried to populate this field but I got an error: "Field is not writeable: Account.PhotoUrl" 
+        // newAccount.PhotoUrl = imageUrl;
+        
         // if the insert is success return JSON with success
         // and the id of the current record
-        if (true) {
-            system.debug(JSON.serialize('success, ID: ' + this.recordID));
-        }
+        try {
+            insert newAccount; // insert a new account list
+            system.debug(JSON.serialize('success, ID: ' + newAccount.Id));
+        } catch (DmlException e) {
         // if the insert failed return a JSON with failed
-        else {
-            system.debug(JSON.serialize('failed'));
+        system.debug(JSON.serialize('failed'));
         }
     }
 }
